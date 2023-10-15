@@ -1,0 +1,56 @@
+.menuBar {
+  animation: menu 3s;
+}
+@keyframes menu {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: auto;
+  }
+}
+.one {
+  animation: one 500ms infinite;
+}
+.two {
+  animation: two 500ms infinite;
+}
+.three {
+  animation: three 500ms infinite;
+}
+@keyframes one {
+  0% {
+    height: 100%;
+  }
+  50% {
+    height: 50%;
+  }
+}
+@keyframes two {
+  0% {
+    height: 50%;
+  }
+  50% {
+    height: 75%;
+  }
+}
+@keyframes three {
+  0% {
+    height: 25%;
+  }
+  50% {
+    height: 100%;
+  }
+}
+.searchMenu {
+  animation: searchMenu 100ms;
+}
+
+@keyframes searchMenu {
+  0% {
+    height: 0%;
+  }
+  50% {
+    height: 100%;
+  }
+}
