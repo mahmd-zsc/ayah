@@ -12,7 +12,7 @@ function MenuBar() {
   return (
     <div
       className={`  fixed py-6 px-10   top-0 right-0 w-full sm:w-[340px]  bg-darkBlue h-screen shadow-lg shadow-black  duration-300 z-40 ${
-        !settings.menu ? " hidden" : null
+        !settings.menu ? " hidden " : null
       }   `}
     >
       <img onClick={handleClose} className=" w-8" src={close} alt="" />

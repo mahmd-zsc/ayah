@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import { store } from "./components/redux/store";
 import Surah from "./components/surah/surah";
 import SearchPage from "./components/searchPage/searchPage";
+import Arrow from "./components/arrow";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <div className="   relative   ">
         <Provider store={store}>
           <Header />
+          <Arrow />
           <div>
             <BrowserRouter>
               <Routes>

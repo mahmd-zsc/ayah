@@ -24,12 +24,12 @@ function Microphone({ setText }) {
   const handleMicrophoneToggle = () => {
     dispatch(changeMicrophoneMode(true));
     dispatch(changeSearchMenuOpen(true));
-    SpeechRecognition.startListening(); // Start listening when the microphone button is clicked
+    SpeechRecognition.startListening();
   };
 
   const handleMicrophoneOff = () => {
     dispatch(changeMicrophoneMode(false));
-    resetTranscript(); // Reset the transcript when turning off the microphone
+    // resetTranscript();
   };
   useEffect(() => {
     dispatch(setTextOfSearch(transcript));
