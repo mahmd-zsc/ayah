@@ -1,55 +1,64 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeMicrophoneMode } from "../../../redux/settings/settingsActions";
-import microphone from "../../../images/home/microphone.png";
-
+import {
+  changeSearchMenuOpen,
+  setTextOfSearch,
+} from "../../../redux/surahSearch/suraSearchAction";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
-import { changeSearchMenuOpen } from "../../../redux/surahSearch/suraSearchAction";
+import microphone from "../../../images/home/microphone.png";
 
-function Microphone() {
-  const microphoneState = useSelector((state) => state.settings.microphone);
-
+function Microphone({ setText }) {
+  const microphoneState = useSelector((state) => state);
   const dispatch = useDispatch();
-  let handleMicrophoneOf = () => {
-    dispatch(changeMicrophoneMode(false));
-  };
+
   const {
     transcript,
     listening,
     resetTranscript,
     browserSupportsSpeechRecognition,
   } = useSpeechRecognition();
-  let handleMicrophoneToggle = () => {
+
+  const handleMicrophoneToggle = () => {
     dispatch(changeMicrophoneMode(true));
     dispatch(changeSearchMenuOpen(true));
+    SpeechRecognition.startListening(); // Start listening when the microphone button is clicked
   };
+
+  const handleMicrophoneOff = () => {
+    dispatch(changeMicrophoneMode(false));
+    resetTranscript(); // Reset the transcript when turning off the microphone
+  };
+  useEffect(() => {
+    dispatch(setTextOfSearch(transcript));
+    setText(transcript);
+  }, [transcript]);
   return (
-    <>
-      {!microphoneState ? (
+    <div>
+      {!listening ? (
         <img
           className="w-6 absolute z-10 right-6 top-1/2 -translate-y-1/2 cursor-pointer"
           src={microphone}
-          onClick={(handleMicrophoneToggle, SpeechRecognition.startListening)}
+          onClick={handleMicrophoneToggle}
           alt=""
         />
       ) : null}
-      {microphoneState ? (
+      {listening ? (
         <div
-          onClick={handleMicrophoneOf}
-          className=" absolute z-10 right-5 top-1/2 -translate-y-1/2 flex items-center gap-1 h-4 duration-200 cursor-pointer  "
+          onClick={handleMicrophoneOff}
+          className="absolute z-10 right-5 top-1/2 -translate-y-1/2 flex items-center gap-1 h-4 duration-200 cursor-pointer"
         >
-          <div className=" one h-full w-[2px] bg-white"></div>
-          <div className=" two h-1/2 w-[2px] bg-white"></div>
-          <div className=" three h-1/3 w-[2px] bg-white"></div>
-
-          <div className=" two h-1/2 w-[2px] bg-white"></div>
-          <div className=" one h-full w-[2px] bg-white"></div>
-          <div className=" three h-1/3 w-[2px] bg-white"></div>
+          <div className="one h-full w-[2px] bg-white"></div>
+          <div className="two h-1/2 w-[2px] bg-white"></div>
+          <div className="three h-1/3 w-[2px] bg-white"></div>
+          <div className="two h-1/2 w-[2px] bg-white"></div>
+          <div className="one h-full w-[2px] bg-white"></div>
+          <div className="three h-1/3 w-[2px] bg-white"></div>
         </div>
       ) : null}
-    </>
+    </div>
   );
 }
 

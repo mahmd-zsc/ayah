@@ -16,6 +16,7 @@ import SpeechRecognition from "react-speech-recognition";
 
 function SearchBar() {
   let form = useRef();
+  let input = useRef();
   let navigate = useNavigate();
   let [text, setText] = useState();
   const microphoneState = useSelector((state) => state.settings.microphone);
@@ -30,36 +31,44 @@ function SearchBar() {
     }
   };
 
-  let handleChangeTextSearch = (e) => {
-    setText(e.target.value);
-  };
   let handleOpenMenu = () => {
     dispatch(changeSearchMenuOpen(true));
   };
   let handleCloseMenu = () => {
     dispatch(changeSearchMenuOpen(false));
   };
+  const focusInput = () => {
+    input.current.focus();
+  };
+
   useEffect(() => {
     dispatch(setTextOfSearch(text));
   }, [text]);
   return (
     <div className="w-full mt-20">
-      <form ref={form} onSubmit={handleSubmit} className="relative" action="">
+      <form
+        onClick={focusInput}
+        ref={form}
+        onSubmit={handleSubmit}
+        className="relative"
+        action=""
+      >
         <img
           className="w-6 absolute z-10 left-6 top-1/2 -translate-y-1/2"
           src={searchImg}
           alt=""
         />
         <input
+          ref={input}
           onFocus={handleOpenMenu}
           onBlur={handleCloseMenu}
-          onChange={(e) => handleChangeTextSearch(e)}
+          onChange={(e) => setText(e.target.value)}
           value={text}
           className="w-full py-4 pl-16 rounded-full bg-mainBlue outline-none text-white opacity-50 focus:opacity-100 duration-300 shadow-lg shadow-black"
           type="text"
         />
 
-        <Microphone />
+        <Microphone setText={setText} />
         <SearchMenu />
       </form>
       <Research />
