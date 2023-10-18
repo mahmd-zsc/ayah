@@ -1,0 +1,41 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #0a1228;
+}
+:hover::-webkit-scrollbar-thumb {
+  background-color: #0f1d42;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #1c2f4d;
+  height: 10px;
+}
+.searchMenu::-webkit-scrollbar {
+  width: 0px;
+}
+.searchMenu {
+  direction: rtl;
+}
+.landing {
+  min-height: calc(100vh - 80px);
+}
+.bg {
+  background-image: url("../images/home/bg-quality.jpg");
+  background-position: 40% 20%;
+  z-index: -10;
+  height: calc(100% + 80px);
+}
+/* .active {
+  background-color: red;
+} */
+.languageMenu .active {
+  background-color: #0a1228;
+}
+.linkNav .hoverWhite {
+  color: gray;
+}
+.linkNav:hover .hoverWhite {
+  color: white;
+}

@@ -1,35 +1,15 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
-import "./animate.css";
-import Header from "./components/header/header";
-import Home from "./components/home/home";
-import pattern from "./components/images/pattern.png";
-import { Provider } from "react-redux";
-import { store } from "./components/redux/store";
-import Surah from "./components/surah/surah";
-import SearchPage from "./components/searchPage/searchPage";
-import Arrow from "./components/arrow";
+import React from "react";
+import { Provider, useSelector } from "react-redux";
+import EN from "./en/en"; // Import other language components as needed
 
 function App() {
+  const language = useSelector((state) => state.settings.language);
+
   return (
-    <>
-      <div className="   relative   ">
-        <Provider store={store}>
-          <Header />
-          <Arrow />
-          <div>
-            <BrowserRouter>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path=":surahId" element={<Surah />} />
-                <Route path="/search" element={<SearchPage />} />
-              </Routes>
-            </BrowserRouter>
-          </div>
-          {/* <img className=" absolute w-[60%] h-screen top-0 left-0 opacity-[2%] -z-10 " src={pattern} alt="" /> */}
-        </Provider>
-      </div>
-    </>
+    <div>
+      {language === "en" && <EN />}
+      {language === "ar" && <EN />}
+    </div>
   );
 }
 
