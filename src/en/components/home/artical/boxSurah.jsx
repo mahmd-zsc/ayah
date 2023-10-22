@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import b from "../../../../images/home/pngegg (1).png";
+import b from "../../../../images/pngegg (1).png";
 
 function BoxSurah({ surah }) {
   return (

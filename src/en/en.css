@@ -27,9 +27,7 @@ body {
   z-index: -10;
   height: calc(100% + 80px);
 }
-/* .active {
-  background-color: red;
-} */
+
 .languageMenu .active {
   background-color: #0a1228;
 }
@@ -38,4 +36,16 @@ body {
 }
 .linkNav:hover .hoverWhite {
   color: white;
+}
+
+::selection {
+  color: #9c2136;
+  background-color: #1f9386;
+}
+sup {
+  color: #9c2136;
+}
+sup::selection{
+  color: #ffffff;
+
 }

@@ -6,7 +6,7 @@ import { changeMenuMode } from "./../../../redux/settings/settingsActions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faGlobe } from "@fortawesome/free-solid-svg-icons";
 import Language from "./language";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 
 function Header() {
   let [languageOpen, setLanguageOpen] = useState(false);
@@ -31,7 +31,9 @@ function Header() {
             style={{ color: "gray" }}
             size="xl"
           />
-          <h1 className=" text-mainCreme font-bold uppercase">title</h1>
+          <Link to="/">
+            <h1 className=" text-mainCreme font-bold uppercase">title</h1>
+          </Link>
         </div>
         <div className=" relative">
           <FontAwesomeIcon

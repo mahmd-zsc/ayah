@@ -13,7 +13,7 @@ import Arrow from "./components/arrow";
 function EN() {
   return (
     <>
-      <div className="   relative   ">
+      <div className="   relative     ">
         <div>
           <BrowserRouter>
             <Header />

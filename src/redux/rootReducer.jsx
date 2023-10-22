@@ -5,6 +5,7 @@ import SuraSearchReducer from "./surahSearch/suraSearchReducer";
 import SurahReducer from "./search/surahReducer";
 import SurahInfoReducer from "./searchInfo copy/surahInfoReducer";
 import SurahTitleReducer from "./surahTitle/surahTitleReducer";
+import translationsReducer from "./translations/translationsReducer";
 
 // Import other reducers as needed
 
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   surahInfo: SurahInfoReducer,
   settings: SettingsReducer,
   surahSearch: SuraSearchReducer,
+  translations: translationsReducer,
 });
 
 export default rootReducer;

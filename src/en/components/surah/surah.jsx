@@ -5,22 +5,30 @@ import { fetchSurah } from "../../../redux/search/surahAction";
 import { fetchSurahInfo } from "./../../../redux/searchInfo copy/surahInfoAction";
 import { fetchSurahTitle } from "./../../../redux/surahTitle/surahTitleAction";
 import TypeOfRead from "./typeOfRead";
-import SurahTitle from "./surahTitle";
 import besm from "../../../images/[CITYPNG.COM]HD أبيض Bismilah Arab Calligraphy بسم الله الرحمان الرحيم Basmalah PNG - 2500x2500.png";
+import SurahTitle from "./surahTitle";
+import Ayats from "./ayats";
+import pattern from "../../../images/pattern.png";
+import { fetchTranslations } from "../../../redux/translations/translationsAction";
 function Surah() {
   let id = useParams().surahId;
-  let surahTitle = useSelector((state) => state.surahTitle.data.chapter);
-  console.log(surahTitle);
   let dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchSurahTitle(id));
+    dispatch(fetchSurah(id));
+    dispatch(fetchTranslations(id));
   }, []);
   return (
-    <div className=" h-screen bg-darkBlue text-white ">
-      <div className=" container flex flex-col items-center ">
-        <img className=" w-40" src={besm} alt="" />
+    <div className=" surahPage min-h-screen bg-darkBlue text-white relative pb-20 ">
+      <div className=" relative   container flex flex-col z-20   ">
+        <SurahTitle />
+        <Ayats />
       </div>
-      {/* <h1>{surahTitle.name_arabic}</h1> */}
+      {/* <img
+        className=" absolute top-0 left-0 min-w-full h-full opacity-[1%]  "
+        src={pattern}
+        alt=""
+      /> */}
     </div>
   );
 }
