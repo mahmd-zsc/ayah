@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import arrowImage from "../../images/arrow.png"; // Rename the imported image variable
+import { useSelector } from "react-redux";
 function Arrow() {
   let [arrow, setArrow] = useState(false);
+  let tafser = useSelector((state) => state.settings.tafser);
   let arrowRef = useRef();
   let handleClick = () => {
     window.scrollTo({
@@ -19,8 +21,9 @@ function Arrow() {
     });
   }, []);
   return (
-    arrow && (
-      <div className="relative container z-30">
+    arrow &&
+    !tafser && (
+      <div className="relative container z-40">
         <div className="fixed right-10 bottom-5 hover:scale-110 duration-300">
           <img
             onClick={handleClick}

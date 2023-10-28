@@ -5,7 +5,7 @@ import RecentlyRead from "./RecentlyRead";
 
 function Landing() {
   return (
-    <div className=" relative landing  flex justify-between text-white ">
+    <div className=" relative landing   flex justify-between text-white ">
       <div className=" bg absolute w-full -top-20 "></div>
       <div className="container flex flex-col items-center  flex-1 pt-5 h-full   ">
         <div>

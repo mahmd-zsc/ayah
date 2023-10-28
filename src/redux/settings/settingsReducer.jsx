@@ -4,6 +4,8 @@ const initialState = {
   menu: false,
   microphone: false,
   language: "en",
+  tafser: false,
+  settingMenu: false,
 };
 
 let SettingsReducer = (state = initialState, action) => {
@@ -22,6 +24,16 @@ let SettingsReducer = (state = initialState, action) => {
       return {
         ...state,
         language: action.payload,
+      };
+    case typeAction.CHANGE_SETTING_MENU:
+      return {
+        ...state,
+        settingMenu: action.payload,
+      };
+    case typeAction.OPEN_CLOSE_TAFSER:
+      return {
+        ...state,
+        tafser: action.payload,
       };
 
     default:

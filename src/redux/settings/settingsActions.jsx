@@ -18,3 +18,15 @@ export let changeLanguage = (action) => {
     payload: action,
   };
 };
+export let changeSettingMenu = (action) => {
+  return {
+    type: typeAction.CHANGE_SETTING_MENU,
+    payload: action,
+  };
+};
+export let changeTaser = (action) => {
+  return {
+    type: typeAction.OPEN_CLOSE_TAFSER,
+    payload: action,
+  };
+};

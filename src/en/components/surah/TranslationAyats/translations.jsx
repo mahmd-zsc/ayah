@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchTranslations } from "./../../../redux/translations/translationsAction";
+import { fetchTranslations } from "../../../../redux/translations/translationsAction";
 
 function Translations({ index }) {
   let translations = useSelector((state) => state.translations);

@@ -18,7 +18,7 @@ function SearchBar() {
   let form = useRef();
   let input = useRef();
   let navigate = useNavigate();
-  let [text, setText] = useState();
+  let [text, setText] = useState("");
   const microphoneState = useSelector((state) => state.settings.microphone);
   const surahSearch = useSelector((state) => state.surahSearch);
 
@@ -67,7 +67,6 @@ function SearchBar() {
           className="w-full py-4 pl-16 rounded-full bg-mainBlue outline-none text-white opacity-50 focus:opacity-100 duration-300 shadow-lg shadow-black"
           type="text"
         />
-
         <Microphone setText={setText} />
         <SearchMenu />
       </form>

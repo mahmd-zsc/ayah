@@ -9,15 +9,17 @@ import { store } from "../redux/store";
 import Surah from "./components/surah/surah";
 import SearchPage from "./components/searchPage/searchPage";
 import Arrow from "./components/arrow";
+import Audio from "./components/audio/audio";
 
 function EN() {
   return (
     <>
-      <div className="   relative     ">
+      <div className="   relative text-mainText     ">
         <div>
           <BrowserRouter>
             <Header />
             <Arrow />
+            <Audio />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path=":surahId" element={<Surah />} />
@@ -25,7 +27,6 @@ function EN() {
             </Routes>
           </BrowserRouter>
         </div>
-        {/* <img className=" absolute w-[60%] h-screen top-0 left-0 opacity-[2%] -z-10 " src={pattern} alt="" /> */}
       </div>
     </>
   );

@@ -18,6 +18,7 @@ module.exports = {
         darkBlue: "#0A1228",
         mainCreme: "#BBBBAF",
         mainRed: "#902428",
+        mainText: "#e7e9ea",
       },
     },
   },

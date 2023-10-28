@@ -1,17 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import "animate.css";
 import { useDispatch, useSelector } from "react-redux";
-import close from "../../../images/heder/delete.png";
 import pattern from "../../../images/pattern.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCoffee,
   faDeleteLeft,
   faHouse,
   faHandsHolding,
+  faBookOpen,
 } from "@fortawesome/free-solid-svg-icons";
 import { changeMenuMode } from "../../../redux/settings/settingsActions";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 function MenuBar({ menuImg }) {
   let menu = useRef();
   let navigate = useNavigate();
@@ -29,9 +28,13 @@ function MenuBar({ menuImg }) {
       title: "supplications ",
       to: "/supplications",
     },
+    {
+      fontAwesome: faBookOpen,
+      title: "tafser ",
+      to: "/tafser",
+    },
   ];
   let handleClose = () => {
-    // menu.current.classList.add("w-0", "sm:w-0");
     dispatch(changeMenuMode(false));
   };
   let handleTo = (i) => {
@@ -54,12 +57,19 @@ function MenuBar({ menuImg }) {
       window.removeEventListener("click", handleClickOutside);
     };
   }, []);
+  useEffect(() => {
+    if (settings.menu === true) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [settings.menu]);
 
   return (
     <>
       <div
         ref={menu}
-        className={`  fixed py-6    top-0 left-0   bg-darkBlue h-screen shadow-lg text-white shadow-black  duration-500 z-40   ${
+        className={`  fixed py-6    top-0 left-0   bg-darkBlue h-screen shadow-lg text-white shadow-black  duration-300 z-40   ${
           !settings.menu
             ? " w-0 sm:w-0 "
             : "w-full sm:w-[340px] animate__animated animate__fadeInLeft"
@@ -78,7 +88,7 @@ function MenuBar({ menuImg }) {
             ref={menu}
             icon={faDeleteLeft}
             style={{ color: "gray" }}
-            rotation="180"
+            rotation={180}
             size="xl"
           />
         </div>
@@ -88,8 +98,9 @@ function MenuBar({ menuImg }) {
             !settings.menu ? " hidden" : null
           }  `}
         >
-          {nav.map((n) => (
+          {nav.map((n, index) => (
             <div
+              key={index}
               onClick={() => handleTo(n.to)}
               className="linkNav flex items-center gap-2 py-2 text-gray-400 hover:text-white cursor-pointer bg-darkBlue "
             >

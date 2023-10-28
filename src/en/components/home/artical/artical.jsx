@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import pattern from "../../../../images/pattern.png";
+import patternTwo from "../../../../images/Pattern 186-PhotoRoom.png-PhotoRoom.png";
+
 import { useDispatch, useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
@@ -31,8 +33,8 @@ function Artical() {
         )}
       </div>
       <img
-        className="absolute w-full h-full left-0 top-0 opacity-[1%] "
-        src={pattern}
+        className="absolute w-full h-full left-0 top-0 opacity-[0.50%] "
+        src={patternTwo}
         alt=""
       />
     </div>

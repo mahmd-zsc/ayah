@@ -12,14 +12,15 @@ body {
   background-color: #1c2f4d;
   height: 10px;
 }
-.searchMenu::-webkit-scrollbar {
+.searchMenu::-webkit-scrollbar,
+.tafserBox::-webkit-scrollbar {
   width: 0px;
 }
 .searchMenu {
   direction: rtl;
 }
 .landing {
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 73px);
 }
 .bg {
   background-image: url("../images/home/bg-quality.jpg");
@@ -45,7 +46,41 @@ body {
 sup {
   color: #9c2136;
 }
-sup::selection{
+sup::selection {
   color: #ffffff;
-
 }
+.roundBefore {
+  position: relative;
+  cursor: pointer;
+}
+/* .roundBefore:hover {
+  color: #1f9386;
+} */
+/* .roundBefore::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #1c2f4d;
+  z-index: -10;
+  opacity: 0;
+  transition-duration: 0.6s;
+} */
+
+/* .roundBefore:hover::before {
+  opacity: 1;
+} */
+
+.icon {
+  position: relative;
+  cursor: pointer;
+  padding: 2px;
+  transition-duration: 1s;
+}
+/* .tafser {
+  top: -73px;
+} */

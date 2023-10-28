@@ -54,3 +54,19 @@
     height: 100%;
   }
 }
+.icon:hover {
+  animation: iconAnimate infinite 1s;
+  color: #1f9386;
+}
+
+@keyframes iconAnimate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
