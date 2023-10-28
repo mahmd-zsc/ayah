@@ -1,32 +1,29 @@
 import { faBookOpen, faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useCallback } from "react";
 import TextMenu from "./textMenu";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  cahngeTaser,
-  changeTaser,
-} from "../../../../redux/settings/settingsActions";
 import { setAyahId, setSurahId } from "../../../../redux/tafser/tafserAction";
+import { changeTaser } from "../../../../redux/settings/settingsActions";
+
+
 function AyahMenu({ verse_key, ayaText, ayahNumber }) {
   let surahId = useSelector(
     (state) => state.surah.data.meta.filters.chapter_number
   );
-  let tafser = useSelector((state) => state.tafser);
-
-  console.log(tafser);
-
   let dispatch = useDispatch();
-  let handleTafser = () => {
-    dispatch(changeTaser(true));
+
+  // Define the memoized callback function
+  const handleTafser = useCallback(() => {
     dispatch(setSurahId(+surahId));
     dispatch(setAyahId(ayahNumber));
-    console.log();
-  };
+    dispatch(changeTaser(true));
+  }, [surahId, ayahNumber, dispatch]);
+
   return (
     <div className="flex justify-between md:flex-col items-center md:gap-7  md:w-10 h-10 md:h-40  text-gray-300">
-      <div className=" flex gap-7   md:flex-col items-center flex-1  ">
-        <p className=" hover:text-[#1f9386] cursor-pointer duration-300 text-sm">
+      <div className="flex gap-7 md:flex-col items-center flex-1">
+        <p className="hover:text-[#1f9386] cursor-pointer duration-300 text-sm">
           {verse_key}
         </p>
         <FontAwesomeIcon className="icon" icon={faPlay} />

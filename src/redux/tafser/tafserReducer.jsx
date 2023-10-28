@@ -4,8 +4,8 @@ const initialState = {
   data: [],
   loading: true,
   error: null,
-  ayah: null,
-  surah: null,
+  ayahId: null,
+  surahId: null,
   author: 1,
 };
 
@@ -33,12 +33,12 @@ let TafserReducer = (state = initialState, action) => {
     case typeAction.SET_AYAH_ID:
       return {
         ...state,
-        ayah: action.payload,
+        ayahId: action.payload,
       };
     case typeAction.SET_SURAH_ID:
       return {
         ...state,
-        surah: action.payload,
+        surahId: action.payload,
       };
 
     default:

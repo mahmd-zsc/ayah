@@ -10,8 +10,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import SurahPagination from "./surahPagination";
 import { addRecentlySurah } from "../../../redux/RecentlyRead/RecentlyReadAction";
-import Tafser from "./TranslationAyats/tafseer";
 import { changeSettingMenu } from "../../../redux/settings/settingsActions";
+import Tafser from "./TranslationAyats/tafser/tafseer";
 function Surah() {
   let id = useParams().surahId;
 

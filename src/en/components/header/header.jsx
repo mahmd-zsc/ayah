@@ -18,10 +18,11 @@ function Header() {
   let language = useRef();
   let settings = useRef();
   let pathname = useLocation().pathname;
-  // let recently = useSelector((state) => state.recently);
+  let state = useSelector((state) => state);
+  console.log(state)
   let handleOpenLanguage = () => {
     setLanguageOpen(!languageOpen);
-    console.log("done");
+    
   };
   let dispatch = useDispatch();
   let handleMenuOpen = () => {

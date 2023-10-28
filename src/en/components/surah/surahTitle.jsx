@@ -24,7 +24,7 @@ function SurahTitle() {
           alt=""
         />
       </div>
-      <img className=" absolute top-0 left-0 -z-10 opacity-[0.60%] " src={Pattern} alt="" />
+      <img className=" absolute top-0 left-0 -z-10 opacity-[0.40%] " src={Pattern} alt="" />
     </div>
   );
 }

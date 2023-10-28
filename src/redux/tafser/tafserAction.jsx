@@ -2,7 +2,7 @@ import axios from "axios";
 import * as typeAction from "./tafserTypeAction";
 
 // Note that this action creator now returns a function
-export let fetchTafser = (authorId, surah, ayah) => {
+export let fetchTafser = (surah, ayah) => {
   return async (dispatch) => {
     dispatch({ type: typeAction.FETCH_TAFSER_REQUEST });
 
@@ -23,6 +23,7 @@ export let fetchTafser = (authorId, surah, ayah) => {
     }
   };
 };
+
 export let setSurahId = (id) => {
   return {
     type: typeAction.SET_SURAH_ID,
