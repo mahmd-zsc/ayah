@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import searchImg from "../../../../../images/home/searchl.png";
-import microphone from "../../../../../images/home/microphone.png";
+import searchImg from "../../../../images/home/searchl.png";
+import microphone from "../../../../images/home/microphone.png";
 import Research from "./research";
 import SearchMenu from "./searchMenu";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,24 +11,27 @@ import { useNavigate } from "react-router-dom";
 import SpeechRecognition from "react-speech-recognition";
 import {
   changeSearchMenuOpen,
+  fetchSurahSearch,
   setSearchData,
   setTextOfSearch,
-} from "../../../../../redux/surahSearch/suraSearchAction";
+} from "../../../../redux/surahSearch/suraSearchAction";
 
 function SearchBar() {
   let form = useRef();
   let input = useRef();
   let navigate = useNavigate();
+  let search = useSelector((state) => state.surahSearch);
   let [text, setText] = useState("");
-  const microphoneState = useSelector((state) => state.settings.microphone);
   const surahSearch = useSelector((state) => state.surahSearch);
+  console.log(surahSearch);
 
   const dispatch = useDispatch();
   let handleSubmit = (e) => {
     e.preventDefault();
     if (surahSearch.text && surahSearch.text.trim().length > 0) {
       dispatch(changeSearchMenuOpen(false));
-      // dispatch(setSearchData(surahSearch.data.search));
+      dispatch(setSearchData(surahSearch.data.search));
+
       navigate(`/search?q=${text}`);
     }
   };
@@ -43,10 +46,18 @@ function SearchBar() {
   useEffect(() => {
     dispatch(setTextOfSearch(text));
   }, [text]);
+  useEffect(() => {
+    const queryString = window.location.search.split("=")[1];
+    const decodedText = decodeURIComponent(queryString);
+    dispatch(fetchSurahSearch(decodedText));
+    setText(decodedText);
+    // dispatch(setSearchData(surahSearch.data.search));
+  }, []);
+
   return (
-    <div className="w-full mt-20">
+    <div className="w-full py-10">
       <form
-        // onClick={focusInput}
+        onClick={focusInput}
         ref={form}
         onSubmit={handleSubmit}
         className="relative"
@@ -63,7 +74,7 @@ function SearchBar() {
           onFocus={handleOpenMenu}
           onChange={(e) => setText(e.target.value)}
           value={text}
-          className="w-full py-4 pl-16 rounded-full bg-mainBlue outline-none text-white opacity-50 focus:opacity-100 duration-300 shadow-lg shadow-black"
+          className="w-full py-4 pl-16 rounded-lg bg-mainBlue outline-none text-white opacity-50 focus:opacity-100 duration-300 shadow-lg shadow-black"
           type="text"
         />
         <Microphone setText={setText} />

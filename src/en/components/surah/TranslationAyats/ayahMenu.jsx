@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { setAyahId, setSurahId } from "../../../../redux/tafser/tafserAction";
 import { changeTaser } from "../../../../redux/settings/settingsActions";
 
-
 function AyahMenu({ verse_key, ayaText, ayahNumber }) {
   let surahId = useSelector(
     (state) => state.surah.data.meta.filters.chapter_number
@@ -34,7 +33,7 @@ function AyahMenu({ verse_key, ayaText, ayahNumber }) {
         />
       </div>
 
-      <TextMenu ayaText={ayaText} />
+      <TextMenu verse_key={verse_key} ayaText={ayaText} />
     </div>
   );
 }

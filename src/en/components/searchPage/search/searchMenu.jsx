@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   changeSearchMenuOpen,
   fetchSurahSearch,
-} from "../../../../../redux/surahSearch/suraSearchAction";
+} from "../../../../redux/surahSearch/suraSearchAction";
 import { Link, useNavigate } from "react-router-dom";
 
 function SearchMenu({ searchBar }) {
@@ -45,7 +45,7 @@ function SearchMenu({ searchBar }) {
         surahSearch.data.search.results.length > 0 && (
           <div
             ref={searchMenu}
-            className="searchMenu absolute left-1/2  top-16 -translate-x-1/2 w-[90%] h-96 bg-mainBlue rounded-b-lg z-10 shadow-sm shadow-black  overflow-y-scroll py-4 px-4 grid grid-cols-1 gap-2   "
+            className="searchMenu absolute left-1/2  top-16 -translate-x-1/2 w-full h-96 bg-mainBlue rounded-b-lg z-10 shadow-sm shadow-black  overflow-y-scroll py-4 px-4 grid grid-cols-1 gap-2   "
           >
             {surahSearch.data.search.results.map((s, index) => (
               // <Link to="/2">

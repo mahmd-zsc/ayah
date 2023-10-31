@@ -18,8 +18,7 @@ function Header() {
   let language = useRef();
   let settings = useRef();
   let pathname = useLocation().pathname;
-  let state = useSelector((state) => state);
-  console.log(state)
+  // let state = useSelector((state) => state);
   let handleOpenLanguage = () => {
     setLanguageOpen(!languageOpen);
     

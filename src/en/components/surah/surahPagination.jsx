@@ -21,8 +21,10 @@ function SurahPagination() {
       setPrevious(true);
     }
   });
+
+
   return (
-    <div className=" flex items-center justify-center gap-2 mt-8">
+    <div className=" surahPagination flex items-center justify-center gap-2 mt-8 ">
       <Link to={`/${+id - 1}`}>
         <button
           disabled={previous}

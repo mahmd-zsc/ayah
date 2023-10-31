@@ -12,7 +12,7 @@ import { fetchAyah } from "../../../../../redux/ayah/ayahAction";
 import boxAya from "../../../../../images/pngegg.png";
 import TafserPagination from "./tafserPagination";
 import { Link } from "react-router-dom";
-
+import pattern from "../../../../../images/Pattern 186-PhotoRoom.png-PhotoRoom.png";
 function Tafser() {
   let openTafser = useSelector((state) => state.settings.tafser);
   let tafser = useSelector((state) => state.tafser);
@@ -44,8 +44,6 @@ function Tafser() {
     dispatch(fetchAyah(tafser.surahId, tafser.ayahId));
   }, [tafser.ayahId]);
 
-  console.log(ayah);
-  console.log(tafser);
   return (
     openTafser && (
       <div className="tafser fixed left-0 bottom-0 h-screen w-full flex justify-center items-center">
@@ -59,7 +57,9 @@ function Tafser() {
                 <div className=" flex items-center justify-between pb-10">
                   <p>{tafser.data.tafseer_name}</p>
                   <Link to="/tafser">
-                    <p className=" text-sm text-mainRed opacity-100 hover:opacity-80 duration-300 ">More</p>
+                    <p className=" text-sm text-mainRed opacity-100 hover:opacity-80 duration-300 ">
+                      More
+                    </p>
                   </Link>
                 </div>
                 <p dir="rtl" className="text-4xl relative w-full">
@@ -72,10 +72,13 @@ function Tafser() {
                   </span>
                 </p>
                 <div className="line w-full h-px bg-lightBlue"></div>
-                <p className=" text-md sm:text-lg md:text-xl lg:text-2xl">{tafser.data.text}</p>{" "}
+                <p className=" text-md sm:text-lg md:text-xl lg:text-2xl">
+                  {tafser.data.text}
+                </p>{" "}
               </div>
 
               <TafserPagination />
+              <img className=" absolute left-0 top-0 opacity-[0.70%] h-full -z-10 w-full" src={pattern} alt="" />
               <FontAwesomeIcon
                 className="cursor-pointer absolute top-6 right-6 opacity-50 hover:opacity-100 duration-300"
                 onClick={handleClose}

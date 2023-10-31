@@ -12,21 +12,6 @@ function TextOfAya({ aya, number, index }) {
     numberingSystem: "arab",
   };
   const arabicNumber = number.toLocaleString("ar", options);
-
-  useEffect(() => {
-    let aya = document.querySelectorAll(".aya")[index];
-    let checkScrollPosition = () => {
-      if (window.screenY > aya.offsetTop) {
-        console.log(aya);
-      }
-    };
-    window.addEventListener("scroll", checkScrollPosition);
-
-    return () => {
-      window.removeEventListener("scroll", checkScrollPosition);
-    };
-  }, []);
-
   return (
     <div className="aya flex flex-col md:flex-row gap-10 h-full">
       <AyahMenu

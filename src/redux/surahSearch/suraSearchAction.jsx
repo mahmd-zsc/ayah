@@ -34,3 +34,15 @@ export let changeSearchMenuOpen = (open) => {
     payload: open,
   };
 };
+export let changeSearchPage = (pageNumber) => {
+  return {
+    type: typeAction.CHANGE_SEARCH_PAGE,
+    payload: pageNumber,
+  };
+};
+export let setSearchData = (data) => {
+  return {
+    type: typeAction.SET_SEARCH_DATA,
+    payload: data,
+  };
+};

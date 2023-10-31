@@ -5,6 +5,7 @@ import patern from "../../../../images/Pattern 186-PhotoRoom.png-PhotoRoom.png";
 function TranslationAyats() {
   let ayaRef = useRef();
   let surah = useSelector((state) => state.surah);
+  console.log(surah)
   return (
     !surah.loading && (
       <div className=" grid grid-cols-1  ">

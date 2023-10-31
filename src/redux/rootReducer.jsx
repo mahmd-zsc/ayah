@@ -2,12 +2,12 @@ import { combineReducers } from "redux";
 import SuraListReducer from "./suraList/suraListReducer";
 import SettingsReducer from "./settings/settingsReducer";
 import SuraSearchReducer from "./surahSearch/suraSearchReducer";
-import SurahReducer from "./search/surahReducer";
 import SurahTitleReducer from "./surahTitle/surahTitleReducer";
 import translationsReducer from "./translations/translationsReducer";
 import RecentlyReadReducer from "./RecentlyRead/RecentlyReadReducer";
 import TafserReducer from "./tafser/tafserReducer";
 import ayahReducer from "./ayah/ayahReducer";
+import SurahReducer from "./surah/surahReducer";
 
 // Import other reducers as needed
 

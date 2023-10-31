@@ -1,18 +1,27 @@
-import { faCopy, faEllipsis } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCopy,
+  faEllipsis,
+  faPaperclip,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function TextMenu({ ayaText }) {
+function TextMenu({ ayaText, verse_key }) {
   const textAreaRef = useRef(null);
   const iconRef = useRef();
   const menuRef = useRef();
   const [openMenu, setOpenMenu] = useState(false);
 
   const handleCopyText = () => {
-    if (textAreaRef.current) {
-      textAreaRef.current.select();
-      document.execCommand("copy");
-    }
+    navigator.clipboard.writeText(ayaText);
+    setOpenMenu(false);
+  };
+  const handleCopyLink = () => {
+    const linkToCopy =
+      window.location.origin +
+      `/${verse_key.split(":")[0]}?startingVerse=${verse_key.split(":")[1]}`;
+    navigator.clipboard.writeText(linkToCopy);
     setOpenMenu(false);
   };
 
@@ -21,6 +30,11 @@ function TextMenu({ ayaText }) {
       text: "Copy Text",
       icon: faCopy,
       action: handleCopyText,
+    },
+    {
+      text: "Copy Link",
+      icon: faPaperclip,
+      action: handleCopyLink,
     },
   ];
 
@@ -73,13 +87,6 @@ function TextMenu({ ayaText }) {
           ))}
         </div>
       )}
-
-      {/* Hidden textarea for copying text */}
-      <textarea
-        ref={textAreaRef}
-        defaultValue={ayaText}
-        style={{ position: "absolute", left: "-9999px" }}
-      />
     </div>
   );
 }

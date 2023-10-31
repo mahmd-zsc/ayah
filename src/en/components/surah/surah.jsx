@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchSurah } from "../../../redux/search/surahAction";
+// import { fetchSurah } from "../../../redux/surahSearch/suraSearchAction";
 import { fetchSurahTitle } from "./../../../redux/surahTitle/surahTitleAction";
 import SurahTitle from "./surahTitle";
 import TranslationAyats from "./TranslationAyats/TranslationAyats";
@@ -12,9 +12,10 @@ import SurahPagination from "./surahPagination";
 import { addRecentlySurah } from "../../../redux/RecentlyRead/RecentlyReadAction";
 import { changeSettingMenu } from "../../../redux/settings/settingsActions";
 import Tafser from "./TranslationAyats/tafser/tafseer";
+import { fetchSurah } from "../../../redux/surah/surahAction";
 function Surah() {
+  let [ayah, setAyah] = useState(null);
   let id = useParams().surahId;
-
   let translationsInfo = useSelector((state) => state.translations);
   let handleChangeAuthorClick = () => {
     dispatch(changeSettingMenu(true));
@@ -26,6 +27,13 @@ function Surah() {
     dispatch(fetchTranslations(id));
     dispatch(addRecentlySurah(id));
   }, [id]);
+  if (window.location.search.includes("?")) {
+    const ayahId = +window.location.search.match(/\d+/g)[0];
+    const ayah = document.getElementById(ayahId);
+    if (ayah) {
+      ayah.scrollIntoView();
+    }
+  }
 
   return (
     <div className=" surahPage min-h-screen bg-darkBlue text-white relative pb-20 ">
