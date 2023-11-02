@@ -60,3 +60,8 @@ sup::selection {
   padding: 2px;
   transition-duration: 1s;
 }
+em {
+  color: #9c2136;
+  font-family: "Poppins", sans-serif;
+
+}

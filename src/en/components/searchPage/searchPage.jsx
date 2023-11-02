@@ -2,11 +2,12 @@ import React from "react";
 import { useSelector } from "react-redux";
 import SearchBar from "./search/searchBar";
 import SearchAyah from "./searchAyah";
+import Pagination from "./pagination";
 
 function SearchPage() {
   let search = useSelector((state) => state.surahSearch);
   // console.log(search);
-
+  // console.log(window.location.search.split("="));
   return (
     <div className="min-h-screen bg-darkBlue">
       <div className="container">
@@ -19,12 +20,13 @@ function SearchPage() {
               </span>{" "}
               Search Results
             </p>
-            <div className="bg-mainBlue grid grid-cols-1 gap-px">
+            <div className="bg-mainBlue grid grid-cols-1 gap-px pb-px ">
               {search.searchData.results &&
                 search.searchData.results.map((d) => (
                   <SearchAyah data={d} key={d.id} />
                 ))}
             </div>
+            <Pagination />
           </>
         )}
       </div>

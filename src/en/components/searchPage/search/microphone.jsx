@@ -41,7 +41,7 @@ function Microphone({ setText }) {
     <div>
       {!listening ? (
         <img
-          className="w-6 absolute z-10 right-6 top-1/2 -translate-y-1/2 cursor-pointer"
+          className="w-6 absolute z-10 left-6 top-1/2 -translate-y-1/2 cursor-pointer"
           src={microphone}
           onClick={handleMicrophoneToggle}
           alt=""
@@ -50,7 +50,7 @@ function Microphone({ setText }) {
       {listening ? (
         <div
           onClick={handleMicrophoneOff}
-          className="absolute z-10 right-5 top-1/2 -translate-y-1/2 flex items-center gap-1 h-4 duration-200 cursor-pointer"
+          className="absolute z-10 left-5 top-1/2 -translate-y-1/2 flex items-center gap-1 h-4 duration-200 cursor-pointer"
         >
           <div className="one h-full w-[2px] bg-white"></div>
           <div className="two h-1/2 w-[2px] bg-white"></div>

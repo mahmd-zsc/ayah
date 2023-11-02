@@ -28,8 +28,7 @@ function SearchBar() {
     e.preventDefault();
     if (surahSearch.text && surahSearch.text.trim().length > 0) {
       dispatch(changeSearchMenuOpen(false));
-      // dispatch(setSearchData(surahSearch.data.search));
-      navigate(`/search?q=${text}`);
+      navigate(`/search?page=1&?q=${text}`);
     }
   };
 
@@ -43,6 +42,9 @@ function SearchBar() {
   useEffect(() => {
     dispatch(setTextOfSearch(text));
   }, [text]);
+  useEffect(() => {
+    // dispatch(setSearchData([]));
+  }, []);
   return (
     <div className="w-full mt-20">
       <form

@@ -45,14 +45,14 @@ function SearchMenu({ searchBar }) {
         surahSearch.data.search.results.length > 0 && (
           <div
             ref={searchMenu}
-            className="searchMenu absolute left-1/2  top-16 -translate-x-1/2 w-[90%] h-96 bg-mainBlue rounded-b-lg z-10 shadow-sm shadow-black  overflow-y-scroll py-4 px-4 grid grid-cols-1 gap-2   "
+            className="searchMenu absolute left-1/2  top-16 -translate-x-1/2 w-[90%] max-h-96 bg-mainBlue rounded-b-lg z-10 shadow-sm shadow-black  overflow-y-scroll py-4 px-4 flex flex-col gap-2   "
           >
             {surahSearch.data.search.results.map((s, index) => (
               // <Link to="/2">
               <div
                 onClick={() => handleClickOnAyah(s)}
                 key={index}
-                className=" px-2  py-2 hover:bg-darkBlue rounded-lg cursor-pointer duration-200"
+                className=" px-2  py-2 hover:bg-darkBlue rounded-lg cursor-pointer duration-200 h-fit "
               >
                 {s.text}
               </div>

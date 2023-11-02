@@ -2,13 +2,13 @@ import axios from "axios";
 import * as typeAction from "./surahSearchTypeAction";
 
 // Note that this action creator now returns a function
-export let fetchSurahSearch = (q) => {
+export let fetchSurahSearch = (q, page) => {
   return async (dispatch) => {
     dispatch({ type: typeAction.FETCH_SURAH_SEARCH_REQUEST });
 
     try {
       const response = await axios.get(
-        `https://api.quran.com/api/v4/search?q=${q}&size=20&page=0&language=en`
+        `https://api.quran.com/api/v4/search?q=${q}&size=20&page=${page}&language=en`
       );
       dispatch({
         type: typeAction.FETCH_SURAH_SEARCH_SUCCESS,
