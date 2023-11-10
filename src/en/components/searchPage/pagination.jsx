@@ -3,81 +3,81 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-// import {
-//   changePage,
-//   playNowFetchData,
-// } from "../redux/playNow/playAction";
+import { useNavigate } from "react-router-dom";
+import { fetchSearchData } from "../../../redux/searchData/SearchDataAction";
 
 function Pagination() {
   const dispatch = useDispatch();
-  const surahSearch = useSelector((state) => state.surahSearch);
-  const total_pages = useSelector(
-    (state) => state.surahSearch.searchData.total_pages
-  );
-  console.log("total_pages = " + total_pages);
-  // console.log(surahSearch);
-  // let [start, setStart] = useState(
-  //   +surahSearch.page < 3 ? 1 : +surahSearch.page - 4
-  // );
-  // console.log("start = " + start);
-  // const numbersArray = Array.from(
-  //   { length: selector.page + 6 },
-  //   (_, index) => index + 1
-  // );
-  // console.log(start);
+  let navigate = useNavigate();
+  let decodedText = decodeURIComponent(window.location.search.split("=")[2]);
+  const searchData = useSelector((state) => state.searchData.data);
+  // console.log(searchData);
+  let [current, setCurrent] = useState(searchData.current_page);
+  let [count, setCount] = useState(5);
+  let [end, setEnd] = useState(current * count);
 
-  // let [end, setEnd] = useState(start + 5);
-  let [next, setNext] = useState(true);
-  let [previous, setPrevious] = useState(true);
+  let [start, setStart] = useState(end - count);
   const numbersArray = Array.from(
-    { length: +total_pages + 1 },
+    { length: +searchData.total_pages },
     (_, index) => index + 1
-  );
-  let handleNext = () => {
-    // if (next) {
-    //   dispatch(changePage(selector.page + 1));
-    //   dispatch(playNowFetchData(selector.page));
-    // }
+  )
+  let handlePage = (n) => {
+    let text = window.location.search;
+
+    let match = text.match(/page=(\d+)/);
+
+    if (match) {
+      let pageNumber = match[1];
+
+      let newText = text.replace(/page=\d+/, `page=${n}`);
+
+      navigate(newText);
+      dispatch(fetchSearchData(decodedText, n));
+      window.scrollTo({
+        top: 0,
+      });
+    }
   };
-  let handlePrevious = () => {
-    // if (previous) {
-    //   dispatch(changePage(selector.page - 1));
-    //   dispatch(playNowFetchData(selector.page));
-    // }
-  };
-  let hadleNubmer = (num) => {
-    // dispatch(changePage(num));
-  };
-  //   useEffect(() => {
-  //     const active = document.querySelector(`#number_${selector.page}`);
-  //     active?.classList.add("active");
-  //   }, [selector.page]);
-  //   useEffect(() => {
-  //     if (selector.page === 1) {
-  //       setPrevious(false);
-  //     }
-  //   }, []);
+
+  // console.log("start is " + start);
+  // console.log("end is " + end);
+  useEffect(() => {
+    let allPaginationItem = document.querySelectorAll(".PaginationItem");
+    allPaginationItem = Array.from(allPaginationItem); // Convert NodeList to array
+    if (allPaginationItem) {
+      allPaginationItem.forEach((i) => {
+        i.classList.remove("active");
+      });
+    }
+
+    let activeElement = document.getElementById(searchData.current_page);
+    if (activeElement) {
+      activeElement.classList.add("active");
+    }
+    // console.log(activeElement);
+  }, [searchData.current_page]);
 
   return (
-    <div className=" py-10 flex items-center justify-center gap-1">
+    <div className=" Pagination py-10 flex items-center justify-center gap-3">
       <FontAwesomeIcon
-        className=" text-2xl text-gray-500 hover:text-white px-3 py-px hover:bg-mainBlue rounded-md"
+        className=" text-2xl text-gray-500 hover:text-white px-3 py-1 hover:bg-mainBlue rounded-md"
         icon={faCaretLeft}
       />
 
       {numbersArray.map((n, index) => (
         <div
+          id={n}
+          onClick={() => handlePage(n)}
           key={index}
-          className="text-xl text-gray-500 hover:text-white px-3 py-1 hover:bg-mainBlue rounded-md"
+          className="PaginationItem text-xl text-gray-500 hover:text-white px-1 min-w-8 h-8 flex justify-center items-center  hover:bg-mainBlue rounded-md cursor-pointer "
         >
-          {n + 1}
+          {n}
         </div>
       ))}
       <FontAwesomeIcon
         className=" text-2xl text-gray-500 hover:text-white px-3 py-1 hover:bg-mainBlue rounded-md"
         icon={faCaretRight}
       />
-      {/* <FontAwesomeIcon className=" text-4xl" icon={faCaretRight}    /> */}
     </div>
   );
 }

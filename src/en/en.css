@@ -65,3 +65,7 @@ em {
   font-family: "Poppins", sans-serif;
 
 }
+.Pagination .active{
+  background-color:#9c2136;
+  color: white;
+}

@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 function SearchAyah({ data }) {
-  let [surahData, setSurahData] = useState();
-  // console.log(surahData);
+  let [surahName, setSurahName] = useState();
   const options = {
     useGrouping: false,
     minimumIntegerDigits: 1,
@@ -34,19 +33,24 @@ function SearchAyah({ data }) {
           data.verse_key.split(":")[0]
         }?language=en`
       )
-      .then((res) => setSurahData(res.data.chapter));
+      .then((res) => setSurahName(res.data.chapter.name_complex));
   }, []);
 
   return (
     <div dir="rtl" className=" relative flex flex-col gap-4 bg-darkBlue py-10">
-      {surahData && (
+      {data && (
         <Link
           to={`/${data.verse_key.split(":")[0]}?startingVerse=${
             data.verse_key.split(":")[1]
           }`}
         >
-          <p dir="ltr " className=" w-fit mr-auto text-sm text-gray-400 hover:text-mainRed duration-300">
-            {surahData.name_complex} <span className=" ">{data.verse_key}</span>
+          <p
+            dir="ltr "
+            className=" w-fit mr-auto text-sm text-gray-400 hover:text-mainRed duration-300"
+          >
+            <span className=" ">
+              {surahName} {data.verse_key}
+            </span>
           </p>{" "}
         </Link>
       )}

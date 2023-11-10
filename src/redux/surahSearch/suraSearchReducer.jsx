@@ -7,7 +7,6 @@ const initialState = {
   text: "",
   open: false,
   page: 1,
-  searchData: [],
 };
 
 let SuraSearchReducer = (state = initialState, action) => {
@@ -44,11 +43,6 @@ let SuraSearchReducer = (state = initialState, action) => {
       return {
         ...state,
         page: action.payload,
-      };
-    case typeAction.SET_SEARCH_DATA:
-      return {
-        ...state,
-        searchData: action.payload,
       };
 
     default:

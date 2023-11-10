@@ -15,9 +15,9 @@ function SearchMenu({ searchBar }) {
     let link = s.verse_key.split(":");
     naviagte(`/${link[0]}?startingVerse=${link[1]}`);
   };
-  useEffect(() => {
-    dispatch(fetchSurahSearch(surahSearch.text));
-  }, [surahSearch.text]);
+  // useEffect(() => {
+  //   dispatch(fetchSurahSearch(surahSearch.text));
+  // }, [surahSearch.text]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {

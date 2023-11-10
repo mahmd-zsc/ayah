@@ -8,6 +8,7 @@ import RecentlyReadReducer from "./RecentlyRead/RecentlyReadReducer";
 import TafserReducer from "./tafser/tafserReducer";
 import ayahReducer from "./ayah/ayahReducer";
 import SurahReducer from "./surah/surahReducer";
+import SearchDataReducer from "./searchData/SearchDataReducer";
 
 // Import other reducers as needed
 
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   // surahInfo: SurahInfoReducer,
   settings: SettingsReducer,
   surahSearch: SuraSearchReducer,
+  searchData: SearchDataReducer,
   translations: translationsReducer,
   recently: RecentlyReadReducer,
   tafser: TafserReducer,

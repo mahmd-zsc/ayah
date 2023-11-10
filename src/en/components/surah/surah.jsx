@@ -27,13 +27,15 @@ function Surah() {
     dispatch(fetchTranslations(id));
     dispatch(addRecentlySurah(id));
   }, [id]);
-  if (window.location.search.includes("?")) {
-    const ayahId = +window.location.search.match(/\d+/g)[0];
-    const ayah = document.getElementById(ayahId);
-    if (ayah) {
-      ayah.scrollIntoView();
+  useEffect(() => {
+    if (window.location.search.includes("?")) {
+      const ayahId = +window.location.search.match(/\d+/g)[0];
+      const ayah = document.getElementById(ayahId);
+      if (ayah) {
+        ayah.scrollIntoView();
+      }
     }
-  }
+  }, [translationsInfo]);
 
   return (
     <div className=" surahPage min-h-screen bg-darkBlue text-white relative pb-20 ">

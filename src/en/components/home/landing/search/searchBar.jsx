@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import searchImg from "../../../../../images/home/searchl.png";
-import microphone from "../../../../../images/home/microphone.png";
 import Research from "./research";
 import SearchMenu from "./searchMenu";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,10 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Microphone from "./microphone";
 
 import { useNavigate } from "react-router-dom";
-import SpeechRecognition from "react-speech-recognition";
 import {
   changeSearchMenuOpen,
-  setSearchData,
   setTextOfSearch,
 } from "../../../../../redux/surahSearch/suraSearchAction";
 
@@ -27,6 +24,7 @@ function SearchBar() {
   let handleSubmit = (e) => {
     e.preventDefault();
     if (surahSearch.text && surahSearch.text.trim().length > 0) {
+      console.log("done");
       dispatch(changeSearchMenuOpen(false));
       navigate(`/search?page=1&?q=${text}`);
     }
@@ -42,18 +40,10 @@ function SearchBar() {
   useEffect(() => {
     dispatch(setTextOfSearch(text));
   }, [text]);
-  useEffect(() => {
-    // dispatch(setSearchData([]));
-  }, []);
+
   return (
     <div className="w-full mt-20">
-      <form
-        // onClick={focusInput}
-        ref={form}
-        onSubmit={handleSubmit}
-        className="relative"
-        action=""
-      >
+      <form ref={form} onSubmit={handleSubmit} className="relative" action="">
         <img
           className="w-6 absolute z-10 left-6 top-1/2 -translate-y-1/2"
           src={searchImg}
