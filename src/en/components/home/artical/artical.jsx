@@ -13,9 +13,7 @@ function Artical() {
   const surahList = useSelector((state) => state.surahList);
   // console.log(surahList);
 
-  useEffect(() => {
-    dispatch(fetchSurahList());
-  }, [dispatch]);
+
 
   return (
     <div className="relative bg-darkBlue">
@@ -31,6 +29,10 @@ function Artical() {
         ) : (
           <p>Loading...</p>
         )}
+      </div>
+      <div className=" container">
+        <div className="lin w-full h-px mb-4 bg-mainBlue"></div>
+
       </div>
       <img
         className="absolute w-full h-full left-0 top-0 opacity-[0.50%] "

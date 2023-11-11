@@ -1,5 +1,6 @@
 body {
   font-family: "Poppins", sans-serif;
+  background-color: #0a1228;
 }
 ::-webkit-scrollbar {
   width: 10px;
@@ -64,13 +65,12 @@ sup::selection {
 em {
   color: #9c2136;
   font-family: "Poppins", sans-serif;
-
 }
-.Pagination .active{
-  background-color:#9c2136;
+.Pagination .active {
+  background-color: #9c2136;
   color: white;
 }
-.Pagination .disabled{
-  cursor :no-drop;
+.Pagination .disabled {
+  cursor: no-drop;
   opacity: 40%;
 }

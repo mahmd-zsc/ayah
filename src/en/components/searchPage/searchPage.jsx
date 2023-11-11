@@ -5,6 +5,7 @@ import SearchAyah from "./searchAyah";
 import Pagination from "./pagination";
 import { fetchSearchData } from "./../../../redux/searchData/SearchDataAction";
 import LoadingSearch from "./loadingSearch";
+import EmptySearch from "./emptySearch";
 
 function SearchPage() {
   let dispatch = useDispatch();
@@ -20,7 +21,7 @@ function SearchPage() {
     dispatch(fetchSearchData(decodedText, page));
   }, []);
   return (
-    <div className="min-h-screen bg-darkBlue">
+    <div className=" bg-darkBlue">
       <div className="container">
         <>
           <SearchBar />
@@ -47,6 +48,11 @@ function SearchPage() {
             )}
 
           {searchData.loading && <LoadingSearch />}
+          {!searchData.loading &&
+            searchData &&
+            searchData.data &&
+            searchData.data.results &&
+            searchData.data.results.length === 0 && <EmptySearch />}
         </>
       </div>
     </div>

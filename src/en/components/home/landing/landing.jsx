@@ -9,7 +9,7 @@ function Landing() {
       <div className=" bg absolute w-full -top-20 "></div>
       <div className="container flex flex-col items-center  flex-1 pt-5 h-full   ">
         <div>
-          <img className=" relative opacity-40" src={textQuran} alt="" />
+          <img className=" relative opacity-30" src={textQuran} alt="" />
           <SearchBar />
         </div>
         <RecentlyRead />

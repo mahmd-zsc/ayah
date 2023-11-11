@@ -41,7 +41,7 @@ function Surah() {
     <div className=" surahPage min-h-screen bg-darkBlue text-white relative pb-20 ">
       <div className=" relative   container flex flex-col z-20    ">
         <SurahTitle />
-        <div className=" relative bottom-10 flex justify-between items-center  ">
+        <div className=" relative bottom-10 flex justify-between  items-center gap-4  ">
           {!translationsInfo.loading && (
             <p>
               {translationsInfo.data.meta.translation_name}{" "}
