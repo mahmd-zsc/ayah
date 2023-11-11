@@ -69,3 +69,7 @@ em {
   background-color:#9c2136;
   color: white;
 }
+.Pagination .disabled{
+  cursor :no-drop;
+  opacity: 40%;
+}
