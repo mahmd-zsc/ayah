@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 import { store } from "../redux/store";
 import Surah from "./components/surah/surah";
 import SearchPage from "./components/searchPage/searchPage";
-import Arrow from "./components/arrow";
+import Arrow from "./components/arrow/arrow";
 import Audio from "./components/audio/audio";
 import Tafser from "./components/tafser/tafser";
 import Footer from "./components/footer/footer";

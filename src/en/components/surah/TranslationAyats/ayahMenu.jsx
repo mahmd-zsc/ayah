@@ -3,7 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useCallback } from "react";
 import TextMenu from "./textMenu";
 import { useDispatch, useSelector } from "react-redux";
-import { setAyahId, setSurahId } from "../../../../redux/tafser/tafserAction";
+import {
+  setAyahId,
+  setSurahId,
+} from "../../../../redux/tafserAyah/tafserAyahAction";
 import { changeTaser } from "../../../../redux/settings/settingsActions";
 
 function AyahMenu({ verse_key, ayaText, ayahNumber }) {

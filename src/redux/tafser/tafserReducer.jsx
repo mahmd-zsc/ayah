@@ -4,9 +4,9 @@ const initialState = {
   data: [],
   loading: true,
   error: null,
-  ayahId: null,
-  surahId: null,
-  author: 1,
+  // ayahId: null,
+  // surahId: null,
+  // author: 1,
 };
 
 let TafserReducer = (state = initialState, action) => {
@@ -30,16 +30,16 @@ let TafserReducer = (state = initialState, action) => {
         error: action.payload,
       };
 
-    case typeAction.SET_AYAH_ID:
-      return {
-        ...state,
-        ayahId: action.payload,
-      };
-    case typeAction.SET_SURAH_ID:
-      return {
-        ...state,
-        surahId: action.payload,
-      };
+    // case typeAction.SET_AYAH_ID:
+    //   return {
+    //     ...state,
+    //     ayahId: action.payload,
+    //   };
+    // case typeAction.SET_SURAH_ID:
+    //   return {
+    //     ...state,
+    //     surahId: action.payload,
+    //   };
 
     default:
       return state;

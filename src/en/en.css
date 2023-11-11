@@ -14,7 +14,8 @@ body {
   height: 10px;
 }
 .searchMenu::-webkit-scrollbar,
-.tafserBox::-webkit-scrollbar {
+.tafserBox::-webkit-scrollbar,
+select::-webkit-scrollbar {
   width: 0px;
 }
 .searchMenu {
@@ -73,4 +74,8 @@ em {
 .Pagination .disabled {
   cursor: no-drop;
   opacity: 40%;
+}
+
+select {
+  background-color: #1c2f4d;
 }

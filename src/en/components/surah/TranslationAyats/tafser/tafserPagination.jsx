@@ -3,12 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { setAyahId } from "../../../../../redux/tafser/tafserAction";
+import { setAyahId } from "../../../../../redux/tafserAyah/tafserAyahAction";
 
 function TafserPagination() {
   let dispatch = useDispatch();
   let ayahsOfSurah = useSelector((state) => state.surah.data.verses.length);
-  let ayaNumber = useSelector((state) => state.tafser.ayahId);
+  let ayaNumber = useSelector((state) => state.tafserAyah.ayahId);
   let [previous, setPrevious] = useState(true);
   let [next, setNext] = useState(true);
   let handleNext = () => {

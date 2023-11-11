@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import arrowImage from "../../images/arrow.png"; // Rename the imported image variable
+import arrowImage from "../../../images/arrow.png"; // Rename the imported image variable
 import { useSelector } from "react-redux";
 function Arrow() {
   let [arrow, setArrow] = useState(false);

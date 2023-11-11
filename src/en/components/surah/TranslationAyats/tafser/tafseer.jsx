@@ -7,7 +7,10 @@ import {
   faArrowRight,
   faDeleteLeft,
 } from "@fortawesome/free-solid-svg-icons";
-import { fetchTafser } from "../../../../../redux/tafser/tafserAction";
+import {
+  fetchTafser,
+  fetchTafserAyah,
+} from "../../../../../redux/tafserAyah/tafserAyahAction";
 import { fetchAyah } from "../../../../../redux/ayah/ayahAction";
 import boxAya from "../../../../../images/pngegg.png";
 import TafserPagination from "./tafserPagination";
@@ -15,7 +18,7 @@ import { Link } from "react-router-dom";
 import pattern from "../../../../../images/Pattern 186-PhotoRoom.png-PhotoRoom.png";
 function Tafser() {
   let openTafser = useSelector((state) => state.settings.tafser);
-  let tafser = useSelector((state) => state.tafser);
+  let tafser = useSelector((state) => state.tafserAyah);
   let ayah = useSelector((state) => state.ayah);
   let dispatch = useDispatch();
   const options = {
@@ -40,7 +43,7 @@ function Tafser() {
     }
   }, [openTafser]);
   useEffect(() => {
-    dispatch(fetchTafser(tafser.surahId, tafser.ayahId));
+    dispatch(fetchTafserAyah(tafser.surahId, tafser.ayahId));
     dispatch(fetchAyah(tafser.surahId, tafser.ayahId));
   }, [tafser.ayahId]);
 
@@ -78,7 +81,11 @@ function Tafser() {
               </div>
 
               <TafserPagination />
-              <img className=" absolute left-0 top-0 opacity-[0.70%] h-full -z-10 w-full" src={pattern} alt="" />
+              <img
+                className=" absolute left-0 top-0 opacity-[0.70%] h-full -z-10 w-full"
+                src={pattern}
+                alt=""
+              />
               <FontAwesomeIcon
                 className="cursor-pointer absolute top-6 right-6 opacity-50 hover:opacity-100 duration-300"
                 onClick={handleClose}

@@ -5,10 +5,11 @@ import SuraSearchReducer from "./surahSearch/suraSearchReducer";
 import SurahTitleReducer from "./surahTitle/surahTitleReducer";
 import translationsReducer from "./translations/translationsReducer";
 import RecentlyReadReducer from "./RecentlyRead/RecentlyReadReducer";
-import TafserReducer from "./tafser/tafserReducer";
 import ayahReducer from "./ayah/ayahReducer";
 import SurahReducer from "./surah/surahReducer";
 import SearchDataReducer from "./searchData/SearchDataReducer";
+import TafserAyahReducer from "./tafserAyah/tafserAyahReducer";
+import TafserReducer from "./tafser/tafserReducer";
 
 // Import other reducers as needed
 
@@ -22,8 +23,9 @@ const rootReducer = combineReducers({
   searchData: SearchDataReducer,
   translations: translationsReducer,
   recently: RecentlyReadReducer,
-  tafser: TafserReducer,
+  tafserAyah: TafserAyahReducer,
   ayah: ayahReducer,
+  tafser: TafserReducer,
 });
 
 export default rootReducer;
