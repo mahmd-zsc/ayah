@@ -1,0 +1,18 @@
+.loading {
+  background-color: #1c2f4d;
+  position: relative;
+  overflow: hidden;
+  animation: moveLoading 2s linear infinite;
+}
+
+@keyframes moveLoading {
+  0% {
+    background-color: #1c2f4d;
+  }
+  50% {
+    background-color: #12223c;
+  }
+  100% {
+    background-color: #1c2f4d;
+  }
+}

@@ -40,7 +40,8 @@ body {
 }
 
 ::selection {
-  color: #9c2136;
+  /* color: #9c2136; */
+  color: white;
   background-color: #1f9386;
 }
 sup {

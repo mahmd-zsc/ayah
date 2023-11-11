@@ -4,6 +4,7 @@ import SearchBar from "./search/searchBar";
 import SearchAyah from "./searchAyah";
 import Pagination from "./pagination";
 import { fetchSearchData } from "./../../../redux/searchData/SearchDataAction";
+import LoadingSearch from "./loadingSearch";
 
 function SearchPage() {
   let dispatch = useDispatch();
@@ -15,7 +16,6 @@ function SearchPage() {
     window.location.search.split("page=")[1]?.match(/\d+/)[0]
   );
 
-
   useEffect(() => {
     dispatch(fetchSearchData(decodedText, page));
   }, []);
@@ -24,7 +24,8 @@ function SearchPage() {
       <div className="container">
         <>
           <SearchBar />
-          {searchData &&
+          {!searchData.loading &&
+            searchData &&
             searchData.data &&
             searchData.data.results &&
             searchData.data.results.length > 0 && (
@@ -33,7 +34,7 @@ function SearchPage() {
                   <span className="text-mainRed">
                     {searchData.data.total_results}
                   </span>
-                 <span> Search Results</span>  
+                  <span> Search Results</span>
                 </p>
                 <div className="bg-mainBlue grid grid-cols-1 gap-px pb-px ">
                   {surahSearch.data.search.results &&
@@ -44,6 +45,8 @@ function SearchPage() {
                 <Pagination />
               </>
             )}
+
+          {searchData.loading && <LoadingSearch />}
         </>
       </div>
     </div>
