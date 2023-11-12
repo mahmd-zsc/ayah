@@ -5,20 +5,20 @@ import { fetchSurahList } from "./../../../redux/suraList/suraListAction";
 import OptionOfTafser from "./optionOfTafser";
 import AyahOfTafser from "./ayahOfTafser";
 import { fetchAyah } from "./../../../redux/ayah/ayahAction";
+import TafserText from "./tafserText";
 
 function Tafser() {
-
-  let tafser = useSelector((state) => state.tafser);
   let surahList = useSelector((state) => state.surahList);
   let dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchTafser(1, 1));
+    // dispatch(fetchTafser(1, 1));
     dispatch(fetchSurahList());
   }, []);
   return (
-    <div className=" h-screen bg-darkBlue mt-20 container">
+    <div className=" min-h-screen bg-darkBlue mt-20 container">
       <OptionOfTafser />
       <AyahOfTafser />
+      <TafserText />
     </div>
   );
 }

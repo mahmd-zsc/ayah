@@ -5,7 +5,7 @@ function Footer() {
     <footer className=" bg-darkBlue pb-10">
       <div className="container">
         {/* <div className="line h-px bg-mainBlue my-4"></div> */}
-        <div className="  grid grid-cols-2">
+        <div className="  grid grid-cols-1 md:grid-cols-2">
           <div>
             <p className=" text-gray-400">
               <span className=" block text-white text-lg pb-2 ">

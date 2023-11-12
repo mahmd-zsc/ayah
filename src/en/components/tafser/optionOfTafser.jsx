@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { fetchAyah } from "../../../redux/ayah/ayahAction";
+import { fetchTafser } from "../../../redux/tafser/tafserAction";
 
 function OptionOfTafser() {
   let surahId = window.location.search.split(":")[0].substring(1);
@@ -25,7 +26,9 @@ function OptionOfTafser() {
   let handleBrowse = () => {
     if (+selectedSurahId !== +surahId || +selectedAyahId !== +ayahId) {
       navigate(`/tafser?${selectedSurahId}:${selectedAyahId}`);
-      dispatch(fetchAyah(surahId, ayahId));
+      dispatch(fetchAyah(selectedSurahId, selectedAyahId));
+      dispatch(fetchTafser(selectedSurahId, selectedAyahId));
+
     }
   };
 
