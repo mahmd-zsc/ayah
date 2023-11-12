@@ -10,6 +10,7 @@ import SurahReducer from "./surah/surahReducer";
 import SearchDataReducer from "./searchData/SearchDataReducer";
 import TafserAyahReducer from "./tafserAyah/tafserAyahReducer";
 import TafserReducer from "./tafser/tafserReducer";
+import SurahInfoReducer from "./searchInfo/surahInfoReducer";
 
 // Import other reducers as needed
 
@@ -17,7 +18,7 @@ const rootReducer = combineReducers({
   surahList: SuraListReducer,
   surah: SurahReducer,
   surahTitle: SurahTitleReducer,
-  // surahInfo: SurahInfoReducer,
+  surahInfo: SurahInfoReducer,
   settings: SettingsReducer,
   surahSearch: SuraSearchReducer,
   searchData: SearchDataReducer,

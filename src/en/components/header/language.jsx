@@ -51,7 +51,7 @@ function Language({ languageOpen, setLanguageOpen, languageIcon }) {
     languageOpen && (
       <div
         ref={languageMenu}
-        className=" languageMenu  absolute px-2 py-4 flex flex-col md:w-40  lg:w-36    gap-1 bg-mainBlue sm:left-1/2 sm:right-auto right-0  top-8 sm:-translate-x-1/2 shadow-sm shadow-black z-20 rounded-lg  "
+        className=" languageMenu  absolute px-2 py-4 flex flex-col md:w-40  lg:w-36    gap-1 bg-mainBlue sm:left-1/2 sm:right-auto right-0  top-8 sm:-translate-x-1/2 shadow-sm shadow-black z-40 rounded-lg  "
       >
         {language.map((l, index) => (
           <div

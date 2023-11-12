@@ -12,6 +12,7 @@ import Arrow from "./components/arrow/arrow";
 import Audio from "./components/audio/audio";
 import Tafser from "./components/tafser/tafser";
 import Footer from "./components/footer/footer";
+import Info from "./components/information/info";
 
 function EN() {
   return (
@@ -25,6 +26,7 @@ function EN() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path=":surahId" element={<Surah />} />
+              <Route path=":surahId/info" element={<Info />} />
               <Route path="/search" element={<SearchPage />} />
               <Route path="/tafser" element={<Tafser />} />
             </Routes>
