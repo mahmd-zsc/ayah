@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 // import { fetchSurah } from "../../../redux/surahSearch/suraSearchAction";
 import { fetchSurahTitle } from "./../../../redux/surahTitle/surahTitleAction";
 import SurahTitle from "./surahTitle";
@@ -16,6 +16,7 @@ import { fetchSurah } from "../../../redux/surah/surahAction";
 function Surah() {
   let [ayah, setAyah] = useState(null);
   let id = useParams().surahId;
+  console.log(id);
   let translationsInfo = useSelector((state) => state.translations);
   let handleChangeAuthorClick = () => {
     dispatch(changeSettingMenu(true));
@@ -53,10 +54,12 @@ function Surah() {
               </span>
             </p>
           )}
-          <p className=" flex items-center gap-1 hover:bg-mainBlue p-1 rounded-lg duration-200 cursor-pointer ">
-            <FontAwesomeIcon icon={faCircleInfo} />
-            Info
-          </p>
+          <Link to={`/${id}/info`}>
+            <button className=" flex items-center gap-1 hover:bg-mainBlue p-1 rounded-lg duration-200 cursor-pointer ">
+              <FontAwesomeIcon icon={faCircleInfo} />
+              Info
+            </button>
+          </Link>
         </div>
         {/* <ReadingAyats /> */}
 
