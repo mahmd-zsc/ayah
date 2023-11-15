@@ -53,7 +53,7 @@ function Tafser() {
       top: 0,
     });
     navigate(`/tafser?${tafser.surahId}:${tafser.ayahId}`);
-    dispatch(changeTaser(false))
+    dispatch(changeTaser(false));
   };
   return (
     openTafser && (

@@ -4,19 +4,20 @@ import linkedIn from "../../../images/icons/linkedin.png";
 import github from "../../../images/icons/github.png";
 import gmail from "../../../images/icons/envelope.png";
 import whatsApp from "../../../images/icons/whatsapp.png";
+import pattern from "../../../images/pattern.png";
 
 function Footer() {
   return (
-    <footer className="  ">
-      <div className="container  ">
-        {/* <div className="line h-px bg-mainBlue my-4"></div> */}
-        <div className=" flex flex-col md:flex-row justify-between gap-4 md:gap-0 items-center  bg-mainBlue py-5 px-2">
+    <footer className=" ">
+      <div className="  container    ">
+        <div className=" flex flex-col md:flex-row justify-between gap-4 md:gap-0 items-center  bg-mainBlue py-5 px-2 relative overflow-hidden">
+        <img className=" absolute top-0 left-0 min-w-full opacity-[2%]  "  src={pattern} alt="" />
           <div>
-            <p className=" text-gray-400 text-center sm:text-left">
-              Engage in the timeless pursuit of comprehending The Noble Quran,
+            <p className=" relative text-gray-400 text-center sm:text-left z-10">
+              Engage in the timeless pursuit of comprehending The Noble Quran.
             </p>
           </div>
-          <ul className="flex gap-2   justify-center  ">
+          <ul className="flex gap-2 relative   justify-center z-10  ">
             <li>
               <a
                 target="_blank"

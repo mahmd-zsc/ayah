@@ -38,13 +38,17 @@ function Audio() {
       }
     };
 
+    const handleAudioEnd = () => {
+      setIsPlaying(false);
+      // You may want to perform additional actions when the audio ends
+      // For example, moving to the next track.
+    };
+
     // Add null checks before adding event listeners
     if (audioRef.current) {
       audioRef.current.addEventListener("timeupdate", updateCurrentTime);
       audioRef.current.addEventListener("loadedmetadata", updateDuration);
-
-      // Setting the currentTime should be a number, not a string
-      // audioRef.current.currentTime = ;
+      audioRef.current.addEventListener("ended", handleAudioEnd);
     }
 
     return () => {
@@ -52,6 +56,7 @@ function Audio() {
       if (audioRef.current) {
         audioRef.current.removeEventListener("timeupdate", updateCurrentTime);
         audioRef.current.removeEventListener("loadedmetadata", updateDuration);
+        audioRef.current.removeEventListener("ended", handleAudioEnd);
       }
     };
   }, [audio]);

@@ -1,15 +1,21 @@
 import React from "react";
-let surah = ["yaseen", "al kahf", "hud", "yusuf"];
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 function Research() {
+  let surah = [1, 18, 36, 112,12];
+  let surahList = useSelector((state) => state.surahList);
+  console.log(surahList);
   return (
-    <div className=" research flex items-center justify-center gap-1 lg:gap-4 mt-10">
+    <div className=" research flex flex-wrap items-center justify-center gap-1 lg:gap-4 mt-10">
       {surah.map((s, index) => (
-        <div
-          key={index}
-          className=" capitalize relative bg-mainBlue px-6 py-2 rounded-full cursor-pointer shadow-sm hover:shadow-black duration-300 hover:-translate-y-1 opacity-70 hover:opacity-100  "
-        >
-          {s}
-        </div>
+        <Link to={`/` + s}>
+          <div
+            key={index}
+            className=" capitalize relative px-2 bg-mainBlue flex justify-center items-center  py-2 rounded-full cursor-pointer shadow-sm hover:shadow-black duration-300 hover:-translate-y-1 opacity-70 hover:opacity-100  "
+          >
+            {surahList.data.chapters[s - 1].name_simple}
+          </div>
+        </Link>
       ))}
     </div>
   );

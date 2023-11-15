@@ -47,7 +47,7 @@ function Header() {
             size="xl"
           />
           <Link to="/">
-            <h1 className=" text-mainCreme font-bold uppercase">title</h1>
+            <h1 className=" text-mainCreme font-bold uppercase">Guidance</h1>
           </Link>
         </div>
         <div className="   ">

@@ -42,7 +42,7 @@ function SearchBar() {
   }, [text]);
 
   return (
-    <div className="w-full mt-20">
+    <div className="w-full mt-20 mb-96 ">
       <form ref={form} onSubmit={handleSubmit} className="relative" action="">
         <img
           className="w-6 absolute z-10 left-6 top-1/2 -translate-y-1/2"
@@ -61,7 +61,7 @@ function SearchBar() {
         <Microphone setText={setText} />
         <SearchMenu searchBar={form} />
       </form>
-      {/* <Research /> */}
+      <Research />
     </div>
   );
 }

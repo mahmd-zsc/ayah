@@ -80,7 +80,7 @@ function MenuBar({ menuImg }) {
             !settings.menu ? " hidden" : null
           }`}
         >
-          <h1 className=" text-mainCreme font-bold uppercase">title</h1>
+          <h1 className=" text-mainCreme font-bold uppercase">Guidance</h1>
 
           <FontAwesomeIcon
             className=" cursor-pointer  "
