@@ -10,10 +10,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleInfo, faPlay } from "@fortawesome/free-solid-svg-icons";
 import SurahPagination from "./surahPagination";
 import { addRecentlySurah } from "../../../redux/RecentlyRead/RecentlyReadAction";
-import { changeSettingMenu } from "../../../redux/settings/settingsActions";
 import Tafser from "./TranslationAyats/tafser/tafseer";
 import { fetchSurah } from "../../../redux/surah/surahAction";
 import { fetchAudio } from "../../../redux/audio/audioAction";
+import { changeSettingMenu } from "../../../redux/settings/settingsActions";
 function Surah() {
   let [ayah, setAyah] = useState(null);
   let id = useParams().surahId;
@@ -46,7 +46,7 @@ function Surah() {
         <SurahTitle />
         <div className=" relative sm:bottom-10 flex flex-col sm:flex-row justify-between  sm:items-center  gap-4  ">
           {!translationsInfo.loading && (
-            <p >
+            <p>
               {translationsInfo.data.meta.translation_name}{" "}
               <span
                 onClick={handleChangeAuthorClick}

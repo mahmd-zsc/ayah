@@ -56,7 +56,7 @@ function Settings({ settingsIcon }) {
         <h1 className=" text-mainCreme font-bold uppercase">settings</h1>
 
         <FontAwesomeIcon
-          className=" cursor-pointer  "
+          className=" settingsIcon cursor-pointer  "
           onClick={handleClose}
           ref={settingImgRef}
           icon={faDeleteLeft}

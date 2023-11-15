@@ -23,11 +23,11 @@ function MenuBar({ menuImg }) {
       title: "home ",
       to: "/",
     },
-    {
-      fontAwesome: faHandsHolding,
-      title: "supplications ",
-      to: "/supplications",
-    },
+    // {
+    //   fontAwesome: faHandsHolding,
+    //   title: "supplications ",
+    //   to: "/supplications",
+    // },
     {
       fontAwesome: faBookOpen,
       title: "tafser ",
