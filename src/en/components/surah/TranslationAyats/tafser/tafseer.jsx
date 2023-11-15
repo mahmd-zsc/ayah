@@ -14,13 +14,14 @@ import {
 import { fetchAyah } from "../../../../../redux/ayah/ayahAction";
 import boxAya from "../../../../../images/pngegg.png";
 import TafserPagination from "./tafserPagination";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import pattern from "../../../../../images/Pattern 186-PhotoRoom.png-PhotoRoom.png";
 function Tafser() {
   let openTafser = useSelector((state) => state.settings.tafser);
   let tafser = useSelector((state) => state.tafserAyah);
   let ayah = useSelector((state) => state.ayah);
   let dispatch = useDispatch();
+  let navigate = useNavigate();
   const options = {
     useGrouping: false,
     minimumIntegerDigits: 1,
@@ -46,7 +47,14 @@ function Tafser() {
     dispatch(fetchTafserAyah(tafser.surahId, tafser.ayahId));
     dispatch(fetchAyah(tafser.surahId, tafser.ayahId));
   }, [tafser.ayahId]);
-
+  let handleGoToTafser = () => {
+    document.body.style.overflow = "auto";
+    window.scrollTo({
+      top: 0,
+    });
+    navigate(`/tafser?${tafser.surahId}:${tafser.ayahId}`);
+    dispatch(changeTaser(false))
+  };
   return (
     openTafser && (
       <div className="tafser fixed left-0 bottom-0 h-screen w-full flex justify-center items-center">
@@ -59,11 +67,13 @@ function Tafser() {
               <div className="flex flex-col gap-8 flex-1">
                 <div className=" flex items-center justify-between pb-10">
                   <p>{tafser.data.tafseer_name}</p>
-                  <Link to="/tafser">
-                    <p className=" text-sm text-mainRed opacity-100 hover:opacity-80 duration-300 ">
-                      More
-                    </p>
-                  </Link>
+
+                  <button
+                    onClick={handleGoToTafser}
+                    className=" text-sm text-mainRed opacity-100 hover:opacity-80 duration-300 "
+                  >
+                    More
+                  </button>
                 </div>
                 <p dir="rtl" className="text-4xl relative w-full">
                   <span>{ayah.data.verses[0].text_uthmani}</span>

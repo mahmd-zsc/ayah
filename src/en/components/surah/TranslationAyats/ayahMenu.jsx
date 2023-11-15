@@ -23,12 +23,12 @@ function AyahMenu({ verse_key, ayaText, ayahNumber }) {
   }, [surahId, ayahNumber, dispatch]);
 
   return (
-    <div className="flex justify-between md:flex-col items-center md:gap-7  md:w-10 h-10 md:h-40  text-gray-300">
-      <div className="flex gap-7 md:flex-col items-center flex-1">
+    <div className="flex justify-between md:flex-col items-center md:gap-12  md:w-10 h-10 md:h-40  text-gray-300">
+      <div className="flex gap-4 md:gap-0  md:justify-between sm:h-full  md:flex-col items-center flex-1">
         <p className="hover:text-[#1f9386] cursor-pointer duration-300 text-sm">
           {verse_key}
         </p>
-        <FontAwesomeIcon className="icon" icon={faPlay} />
+        {/* <FontAwesomeIcon className="icon" icon={faPlay} /> */}
         <FontAwesomeIcon
           onClick={handleTafser}
           className="icon"

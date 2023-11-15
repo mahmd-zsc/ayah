@@ -14,7 +14,6 @@ import LoadingOfHome from "./loadingOfHome";
 
 function Home() {
   let surahList = useSelector((state) => state.surahList);
-  console.log(surahList);
   let dispatch = useDispatch();
   useEffect(() => {
     document.body.style.overflow = "auto";

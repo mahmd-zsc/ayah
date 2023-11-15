@@ -23,8 +23,8 @@ function Arrow() {
   return (
     arrow &&
     !tafser && (
-      <div className="relative container z-40">
-        <div className="fixed right-10 bottom-5 hover:scale-110 duration-300">
+      <div className="audio relative container z-40">
+        <div className="fixed right-10 bottom-12 hover:scale-110 duration-300">
           <img
             onClick={handleClick}
             className=" relative w-12 cursor-pointer animate__animated  animate__tada    "

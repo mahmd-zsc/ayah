@@ -6,7 +6,7 @@ function EmptySearch() {
   let decodedText = decodeURIComponent(window.location.search.split("=")[2]);
 
   return (
-    <div className=" flex flex-col gap-10 justify-center mt-10 text-gray-200">
+    <div className=" flex flex-col gap-10 justify-center mt-10 mb-80 text-gray-200">
       <FontAwesomeIcon
         className=" text-5xl text-mainBlue"
         icon={faMagnifyingGlass}

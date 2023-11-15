@@ -7,16 +7,16 @@ import SurahTitle from "./surahTitle";
 import TranslationAyats from "./TranslationAyats/TranslationAyats";
 import { fetchTranslations } from "../../../redux/translations/translationsAction";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
+import { faCircleInfo, faPlay } from "@fortawesome/free-solid-svg-icons";
 import SurahPagination from "./surahPagination";
 import { addRecentlySurah } from "../../../redux/RecentlyRead/RecentlyReadAction";
 import { changeSettingMenu } from "../../../redux/settings/settingsActions";
 import Tafser from "./TranslationAyats/tafser/tafseer";
 import { fetchSurah } from "../../../redux/surah/surahAction";
+import { fetchAudio } from "../../../redux/audio/audioAction";
 function Surah() {
   let [ayah, setAyah] = useState(null);
   let id = useParams().surahId;
-  console.log(id);
   let translationsInfo = useSelector((state) => state.translations);
   let handleChangeAuthorClick = () => {
     dispatch(changeSettingMenu(true));
@@ -35,6 +35,8 @@ function Surah() {
       if (ayah) {
         ayah.scrollIntoView();
       }
+    } else {
+      window.scrollTo({ top: 0 });
     }
   }, [translationsInfo]);
 
@@ -42,9 +44,9 @@ function Surah() {
     <div className=" surahPage min-h-screen bg-darkBlue text-white relative pb-20 ">
       <div className=" relative   container flex flex-col z-20    ">
         <SurahTitle />
-        <div className=" relative bottom-10 flex justify-between  items-center gap-4  ">
+        <div className=" relative sm:bottom-10 flex flex-col sm:flex-row justify-between  sm:items-center  gap-4  ">
           {!translationsInfo.loading && (
-            <p>
+            <p >
               {translationsInfo.data.meta.translation_name}{" "}
               <span
                 onClick={handleChangeAuthorClick}
@@ -55,11 +57,18 @@ function Surah() {
             </p>
           )}
           <Link to={`/${id}/info`}>
-            <button className=" flex items-center gap-1 hover:bg-mainBlue p-1 rounded-lg duration-200 cursor-pointer ">
+            <button className=" flex items-center gap-1 hover:bg-mainBlue p-1 rounded-lg duration-200 cursor-pointer capitalize ">
               <FontAwesomeIcon icon={faCircleInfo} />
-              Info
+              surah info
             </button>
           </Link>
+        </div>
+        <div
+          onClick={() => dispatch(fetchAudio(7, id))}
+          className=" relative bottom-8 flex items-center gap-1 hover:bg-mainBlue p-1 rounded-lg duration-200 cursor-pointer ml-auto   "
+        >
+          <FontAwesomeIcon className="icon" icon={faPlay} />
+          <span className=" capitalize">play audio</span>
         </div>
         {/* <ReadingAyats /> */}
 
