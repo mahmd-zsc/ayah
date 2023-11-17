@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faGear, faGlobe } from "@fortawesome/free-solid-svg-icons";
 import Language from "./language";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
-import Settings from "./settings";
+import Settings from "./settings/settings";
 
 function Header() {
   let [languageOpen, setLanguageOpen] = useState(false);
@@ -47,12 +47,12 @@ function Header() {
             size="xl"
           />
           <Link to="/">
-            <h1 className=" text-mainCreme font-bold uppercase">Guidance</h1>
+            <h1 className=" text-mainCreme font-bold uppercase">ayah</h1>
           </Link>
         </div>
         <div className="   ">
           <div className="relative flex items-center gap-4">
-            <div className=" relative">
+            {/* <div className=" relative">
               <FontAwesomeIcon
                 ref={language}
                 className=" cursor-pointer"
@@ -67,7 +67,7 @@ function Header() {
                 languageIcon={language}
                 setLanguageOpen={setLanguageOpen}
               />
-            </div>
+            </div> */}
             <div>
               <FontAwesomeIcon
                 onClick={handleOpenSetting}

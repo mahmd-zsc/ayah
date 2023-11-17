@@ -13,7 +13,10 @@ import { addRecentlySurah } from "../../../redux/RecentlyRead/RecentlyReadAction
 import Tafser from "./TranslationAyats/tafser/tafseer";
 import { fetchSurah } from "../../../redux/surah/surahAction";
 import { fetchAudio } from "../../../redux/audio/audioAction";
-import { changeSettingMenu } from "../../../redux/settings/settingsActions";
+import {
+  changeSettingMenu,
+  changeSettingPage,
+} from "../../../redux/settings/settingsActions";
 import SurahLoading from "./surahLoading";
 function Surah() {
   let [ayah, setAyah] = useState(null);
@@ -23,14 +26,18 @@ function Surah() {
 
   let handleChangeAuthorClick = () => {
     dispatch(changeSettingMenu(true));
+    dispatch(changeSettingPage("translation"));
   };
   let dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchSurahTitle(id));
     dispatch(fetchSurah(id));
-    dispatch(fetchTranslations(id));
+    dispatch(fetchTranslations(translationsInfo.authorId, id));
     dispatch(addRecentlySurah(id));
   }, [id]);
+  useEffect(() => {
+    dispatch(fetchTranslations(translationsInfo.authorId, id));
+  }, [translationsInfo.authorId]);
   useEffect(() => {
     if (window.location.search.includes("?")) {
       const ayahId = +window.location.search.match(/\d+/g)[0];
@@ -55,7 +62,7 @@ function Surah() {
                   {translationsInfo.data.meta.translation_name}{" "}
                   <span
                     onClick={handleChangeAuthorClick}
-                    className=" text-mainRed cursor-pointer "
+                    className=" change text-mainRed cursor-pointer "
                   >
                     (change)
                   </span>

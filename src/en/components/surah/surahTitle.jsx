@@ -5,6 +5,7 @@ import besm from "../../../images/[CITYPNG.COM]HD أبيض Bismilah Arab Calligr
 import Pattern from "../../../images/Pattern 186-PhotoRoom.png-PhotoRoom.png";
 function SurahTitle() {
   let surahTitle = useSelector((state) => state.surahTitle);
+  console.log(surahTitle);
 
   return (
     <div className="relative overflow-hidden">
@@ -12,7 +13,7 @@ function SurahTitle() {
         <div className=" relative flex justify-center ">
           {!surahTitle.loading && (
             <h1 className=" absolute md:text-xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-              سورة {surahTitle.data.chapter.name_arabic}
+               {surahTitle.data.chapter.name_simple}
             </h1>
           )}
           <img className=" w-60 md:w-80 " src={boxImg} alt="" />
@@ -24,7 +25,11 @@ function SurahTitle() {
           alt=""
         />
       </div>
-      <img className=" absolute top-0 left-0 -z-10 opacity-[0.40%] " src={Pattern} alt="" />
+      <img
+        className=" absolute top-0 left-0 -z-10 opacity-[0.40%] "
+        src={Pattern}
+        alt=""
+      />
     </div>
   );
 }

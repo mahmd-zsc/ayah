@@ -6,6 +6,8 @@ const initialState = {
   language: "en",
   tafser: false,
   settingMenu: false,
+  translationSettingOpen: false,
+  page: "main",
 };
 
 let SettingsReducer = (state = initialState, action) => {
@@ -34,6 +36,16 @@ let SettingsReducer = (state = initialState, action) => {
       return {
         ...state,
         tafser: action.payload,
+      };
+    // case typeAction.OPEN_CLOSE_TRANSLATION_SETTING:
+    //   return {
+    //     ...state,
+    //     translationSettingOpen: action.payload,
+    //   };
+    case typeAction.CHANGE_SETTING_PAGE:
+      return {
+        ...state,
+        page: action.payload,
       };
 
     default:

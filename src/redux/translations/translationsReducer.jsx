@@ -4,6 +4,7 @@ const initialState = {
   data: [],
   loading: true,
   error: null,
+  authorId: 131,
 };
 
 let translationsReducer = (state = initialState, action) => {
@@ -25,6 +26,11 @@ let translationsReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error: action.payload,
+      };
+    case typeAction.CHANGE_AUTHOR_ID:
+      return {
+        ...state,
+        authorId: action.payload,
       };
 
     default:

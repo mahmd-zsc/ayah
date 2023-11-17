@@ -12,6 +12,7 @@ import TafserAyahReducer from "./tafserAyah/tafserAyahReducer";
 import TafserReducer from "./tafser/tafserReducer";
 import SurahInfoReducer from "./searchInfo/surahInfoReducer";
 import audioReducer from "./audio/audioReducer";
+import translationsNamesReducer from "./translationsNames/translationsNamesReducer";
 
 // Import other reducers as needed
 
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   surahSearch: SuraSearchReducer,
   searchData: SearchDataReducer,
   translations: translationsReducer,
+  tanslationsNames: translationsNamesReducer,
   recently: RecentlyReadReducer,
   tafserAyah: TafserAyahReducer,
   ayah: ayahReducer,

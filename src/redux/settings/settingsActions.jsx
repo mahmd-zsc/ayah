@@ -18,6 +18,12 @@ export let changeLanguage = (action) => {
     payload: action,
   };
 };
+export let changeSettingPage = (action) => {
+  return {
+    type: typeAction.CHANGE_SETTING_PAGE,
+    payload: action,
+  };
+};
 export let changeSettingMenu = (action) => {
   return {
     type: typeAction.CHANGE_SETTING_MENU,
@@ -30,3 +36,9 @@ export let changeTaser = (action) => {
     payload: action,
   };
 };
+// export let changeTranslationSettingOpen = (action) => {
+//   return {
+//     type: typeAction.OPEN_CLOSE_TRANSLATION_SETTING,
+//     payload: action,
+//   };
+// };

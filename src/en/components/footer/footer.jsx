@@ -10,8 +10,8 @@ function Footer() {
   return (
     <footer className=" ">
       <div className="  container    ">
-        <div className=" flex flex-col md:flex-row justify-between gap-4 md:gap-0 items-center  bg-mainBlue py-5 px-2 relative overflow-hidden">
-        <img className=" absolute top-0 left-0 min-w-full opacity-[2%]  "  src={pattern} alt="" />
+        <div className=" flex flex-col md:flex-row justify-between gap-4 md:gap-0 items-center   py-5 px-2 relative overflow-hidden">
+        {/* <img className=" absolute top-0 left-0 min-w-full opacity-[2%]  "  src={pattern} alt="" /> */}
           <div>
             <p className=" relative text-gray-400 text-center sm:text-left z-10">
               Engage in the timeless pursuit of comprehending The Noble Quran.
