@@ -26,3 +26,9 @@ export let deleteData = () => {
     type: typeAction.DELETE_DATA,
   };
 };
+export let changeReciterId = (ReciterId) => {
+  return {
+    type: typeAction.CHANGE_RECITER_ID,
+    payload: ReciterId,
+  };
+};

@@ -5,8 +5,6 @@ import besm from "../../../images/[CITYPNG.COM]HD أبيض Bismilah Arab Calligr
 import Pattern from "../../../images/Pattern 186-PhotoRoom.png-PhotoRoom.png";
 function SurahTitle() {
   let surahTitle = useSelector((state) => state.surahTitle);
-  console.log(surahTitle);
-
   return (
     <div className="relative overflow-hidden">
       <div className="  title text-center    ">

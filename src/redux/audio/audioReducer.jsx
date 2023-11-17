@@ -4,6 +4,7 @@ const initialState = {
   data: [],
   loading: true,
   error: null,
+  ReciterId: 7,
 };
 
 let audioReducer = (state = initialState, action) => {
@@ -30,6 +31,11 @@ let audioReducer = (state = initialState, action) => {
       return {
         ...state,
         data: [],
+      };
+    case typeAction.CHANGE_RECITER_ID:
+      return {
+        ...state,
+        ReciterId: action.payload,
       };
 
     default:

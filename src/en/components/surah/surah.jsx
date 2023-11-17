@@ -22,6 +22,7 @@ function Surah() {
   let [ayah, setAyah] = useState(null);
   let id = useParams().surahId;
   let translationsInfo = useSelector((state) => state.translations);
+  let ReciterId = useSelector((state) => state.audio.ReciterId);
   let surah = useSelector((state) => state.surah);
 
   let handleChangeAuthorClick = () => {
@@ -76,7 +77,7 @@ function Surah() {
               </Link>
             </div>
             <div
-              onClick={() => dispatch(fetchAudio(7, id))}
+              onClick={() => dispatch(fetchAudio(ReciterId, id))}
               className=" relative bottom-8 flex items-center gap-1 hover:bg-mainBlue p-1 rounded-lg duration-200 cursor-pointer ml-auto   "
             >
               <FontAwesomeIcon className="icon" icon={faPlay} />

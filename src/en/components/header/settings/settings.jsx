@@ -11,9 +11,12 @@ import { fetchTranslationsNames } from "./../../../../redux/translationsNames/tr
 import Main from "./main";
 import TranslationMenu from "./TranslationSetting/TranslationMenu";
 import ReciterMenu from "./ReciterSetting/ReciterMenu";
+import { fetchTranslations } from "../../../../redux/translations/translationsAction";
+import { fetchReciterNames } from "./../../../../redux/ReciterNames/ReciterNamesAction";
 
 function Settings({ settingsIcon }) {
   let selector = useSelector((state) => state.settings);
+  let authorId = useSelector((state) => state.translations.authorId);
   let settingRef = useRef();
   let settingImgRef = useRef();
   let bgRef = useRef();
@@ -72,6 +75,7 @@ function Settings({ settingsIcon }) {
   }, []);
   useEffect(() => {
     dispatch(fetchTranslationsNames());
+    dispatch(fetchReciterNames());
   }, []);
   return (
     <>

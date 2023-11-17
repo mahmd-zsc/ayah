@@ -12,6 +12,7 @@ function TranslationMenu() {
   );
   let translationId = useSelector((state) => state.translations.authorId);
   let dataOfTranslations = useSelector((state) => state.tanslationsNames);
+  console.log(dataOfTranslations);
 
   return (
     <>
@@ -33,7 +34,9 @@ function TranslationMenu() {
               <div
                 onClick={() => dispatch(changeAuthorId(t.id))}
                 key={index}
-                className={` bg-darkBlue hover:bg-mainBlue duration-300 text-gray-200 hover:text-white cursor-pointer px-4 py-4 ${t.id === translationId ? "bg-mainBlue text-white" : null}`}
+                className={` bg-darkBlue hover:bg-mainBlue duration-300 text-gray-200 hover:text-white cursor-pointer px-4 py-4 ${
+                  t.id === translationId ? "bg-mainBlue text-white" : null
+                }`}
               >
                 {t.name.substring(0, 30)}
               </div>

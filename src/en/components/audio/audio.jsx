@@ -13,6 +13,7 @@ import pattern from "../../../images/Pattern 186-PhotoRoom.png-PhotoRoom.png";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteData, fetchAudio } from "../../../redux/audio/audioAction";
 function Audio() {
+  let ReciterId = useSelector((state) => state.audio.ReciterId);
   let dispatch = useDispatch();
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -24,6 +25,7 @@ function Audio() {
   let [previous, setPrevious] = useState(true);
   const [surahId, setsurahId] = useState();
   let audio = useSelector((state) => state.audio);
+  // console.log(audio)
 
   useEffect(() => {
     const updateCurrentTime = () => {
@@ -98,13 +100,13 @@ function Audio() {
   };
   let handleSurahPrevious = () => {
     if (surahId > 1) {
-      dispatch(fetchAudio(7, surahId - 1));
+      dispatch(fetchAudio(ReciterId, surahId - 1));
       setIsPlaying(true);
     }
   };
   let handleSurahNext = () => {
     if (surahId < 114) {
-      dispatch(fetchAudio(7, surahId + 1));
+      dispatch(fetchAudio(ReciterId, surahId + 1));
       setIsPlaying(true);
     }
   };
