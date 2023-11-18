@@ -22,6 +22,8 @@ function Settings({ settingsIcon }) {
   let bgRef = useRef();
   let dispatch = useDispatch();
   let handleClose = () => {
+    dispatch(changeSettingPage("main"));
+
     dispatch(changeSettingMenu(false));
   };
   useEffect(() => {
